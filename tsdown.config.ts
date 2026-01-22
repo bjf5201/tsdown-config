@@ -1,3 +1,3 @@
-import { tsdownLib } from './src/index.ts'
+import { tsdownNodeLib } from './src/index.ts'
 
-export default tsdownLib();
+export default tsdownNodeLib();
