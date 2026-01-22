@@ -1,0 +1,55 @@
+{
+  "name": "@bjf5201/tsdown-config",
+  "type": "module",
+  "version": "1.0.0-alpha",
+  "packageManager": "pnpm@10.28.1+sha512.7d7dbbca9e99447b7c3bf7a73286afaaf6be99251eb9498baefa7d406892f67b879adb3a1d7e687fc4ccc1a388c7175fbaae567a26ab44d1067b54fcb0d6a316",
+  "description": "Custom, opininated config functions for tsdown build tool",
+  "author": "Bethany Fannin <contact@bethanyfannin.com> (https://www.bethanyfannin.com)",
+  "keywords": [
+    "tdown",
+    "preset"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/bjf5201/tsdown-config#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bjf5201/tsdown-config"
+  },
+  "bugs": "https://github.com/bjf5201/tsdown-config/issues",
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20.19.0",
+    "vscode": "^1.22.0"
+  },
+  "scripts": {
+    "lint": "echo \"Add lint command at later iteration via eslint and prettier\"",
+    "fix": "echo \"Add lint:fix command (but called only fix for simplicity) via eslint and prettier\"",
+    "typecheck": "tsc --noEmit --skipLibCheck",
+    "test": "pnpm run lint && pnpm run typecheck",
+    "build": "tsdown",
+    "prepare": "pnpm test && pnpm build",
+    "release": "bumpp",
+    "dev": "tsdown --watch && pnpm run test"
+  },
+  "devDependencies": {
+    "@types/node": "25.0.10",
+    "bumpp": "10.4.0",
+    "eslint": "9.39.2",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  },
+  "dependencies": {
+    "@arethetypeswrong/core": "0.18.2",
+    "tsdown": "0.20.0"
+  }
+}
