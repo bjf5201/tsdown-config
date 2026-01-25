@@ -4,7 +4,7 @@ My custom, opinonated config functions to be used with the [`tsdown` build tool]
 
 ## tsdownLib
 
-Basic library configs
+Basic library configs (these are extended by `tsdownNodeLib` and any other config functions in the future)
 
 ## tsdownNodeLib
 
