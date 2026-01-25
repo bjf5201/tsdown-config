@@ -32,14 +32,16 @@
     "vscode": "^1.22.0"
   },
   "scripts": {
-    "lint": "echo \"Add lint command at later iteration via eslint and prettier\"",
-    "fix": "echo \"Add lint:fix command (but called only fix for simplicity) via eslint and prettier\"",
-    "typecheck": "tsc --noEmit --skipLibCheck",
-    "test": "pnpm run lint && pnpm run typecheck",
     "build": "tsdown",
+    "ci": "pnpm lint && pnpm test --coverage && pnpm build",
+    "dev": "tsdown --watch && pnpm run test",
+    "fix": "echo \"Add lint:fix command (but called only fix for simplicity) via eslint and prettier\"",
+    "lint": "echo \"Add lint command at later iteration via eslint and prettier\"",
     "prepare": "pnpm test && pnpm build",
     "release": "bumpp",
-    "dev": "tsdown --watch && pnpm run test"
+    "test": "pnpm run lint && pnpm run typecheck",
+    "typecheck": "tsc --noEmit --skipLibCheck",
+    "unit": "vitest"
   },
   "devDependencies": {
     "@types/node": "25.0.10",
