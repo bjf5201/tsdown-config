@@ -17,7 +17,7 @@
   },
   "bugs": "https://github.com/bjf5201/tsdown-config/issues",
   "exports": {
-    ".": "./dist/index.js",
+    ".": "./dist/index.mjs",
     "./package.json": "./package.json"
   },
   "types": "./dist/index.d.ts",
@@ -46,7 +46,8 @@
     "bumpp": "10.4.0",
     "eslint": "9.39.2",
     "prettier": "3.8.1",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "vitest": "4.0.18"
   },
   "dependencies": {
     "@arethetypeswrong/core": "0.18.2",
