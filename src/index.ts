@@ -7,18 +7,19 @@ import type {
  } from 'tsdown';
 
 export interface Options {
-    entry?: 'indexFile' | 'srcDir' | 'srcRecursive' | Exclude<TsdownInputOption, string>;
+    entry?: 'index' | 'srcDir' | 'srcRecursive' | Exclude<TsdownInputOption, string>;
     inlineDeps?: (string | RegExp)[];
+    platform?: 'browser' | 'node' | 'neutral';
 }
 
-export function tsdownLib(
-    { entry = 'indexFile', inlineDeps = [] }: Options = {},
+export function config(
+    { entry = 'index', inlineDeps = [], platform = 'node' }: Options = {},
     overrides: UserConfig = {}
 ): UserConfig {
     return mergeConfig(
         {
             entry:
-                entry === 'indexFile' ? 'src/index.ts'
+                entry === 'index' ? 'src/index.ts'
                 : entry === 'srcDir' ? 'src/*.ts'
                 : entry === 'srcRecursive' ? 'src/**/*.ts'
                 : entry,
@@ -27,7 +28,7 @@ export function tsdownLib(
                 sourcemap: true,
             },
             inlineOnly: inlineDeps,
-            platform: 'neutral',
+            platform: platform,
             exports: true,
             attw: {
                 enabled: 'ci-only',
@@ -38,14 +39,4 @@ export function tsdownLib(
         overrides,
 
     )
-};
-
-export function tsdownNodeLib(
-    options: Options = {},
-    overrides: UserConfig = {},
-): UserConfig {
-    return tsdownLib(options, {
-        platform: 'node',
-        ...overrides,
-    })
 };

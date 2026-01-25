@@ -1,3 +1,3 @@
-import { tsdownNodeLib } from './src/index.ts'
+import { config } from './src/index.ts'
 
-export default tsdownNodeLib();
+export default config();
